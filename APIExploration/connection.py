@@ -8,7 +8,6 @@ import pandas as pd
 import os
 import json
 from datetime import datetime
-import asyncio
 
 
 def connection():
@@ -29,21 +28,8 @@ def infos(currency):
     client = Client(key, secret)
     return json.dumps(client.get_symbol_info(currency))
 
-async def view():
-    client = await AsyncClient.create()
-    bm = BinanceSocketManager(client, user_timeout=60)
-    ts = bm.trade_socket('BTCUSDT')
-    # start any sockets here, i.e a trade socket
-    # ts = bm.miniticker_socket(1000)
-    # then start receiving messages
-    async with ts as tscm:
-        while True:
-            res = await tscm.recv()
-            print(res)
+
     
 
 if __name__ == '__main__':
     connection()
-    # infos('BTCUSDT')
-    # loop = asyncio.get_event_loop()
-    # loop.run_until_complete(view())

@@ -30,7 +30,8 @@ app.layout = html.Div(children=[
                     {'label': 'LTC', 'value': 'LTCUSDT'},
                     {'label': 'DOT', 'value': 'DOTUSDT'},
                     {'label': 'VET', 'value': 'VETUSDT'},
-                    {'label': 'BTC', 'value': 'BTCUSDT'}
+                    {'label': 'BTC', 'value': 'BTCUSDT'},
+                    {'label': 'FET', 'value': 'FETUSDT'}
                 ],
                 value='BTCUSDT'
             )),
@@ -100,4 +101,4 @@ def info(value):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, port=8001)
